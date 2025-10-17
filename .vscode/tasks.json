@@ -1,0 +1,56 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Doplarr: Build & Debug",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "cd /home/josh/Doplarr && clj -T:build uber && java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Dconfig=config.edn -jar target/doplarr.jar"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Listening for transport.*",
+                    "endsPattern": "^.*"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Doplarr: Debug (No Build)",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "cd /home/josh/Doplarr && java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Dconfig=config.edn -jar target/doplarr.jar"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Listening for transport.*",
+                    "endsPattern": "^.*"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}

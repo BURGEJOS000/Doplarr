@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Doplarr Debug (Port 5005)",
+            "type": "node",
+            "request": "attach",
+            "address": "localhost",
+            "port": 5005,
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ]
+}

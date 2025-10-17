@@ -1,0 +1,22 @@
+# Doplarr Debug Session Information
+# Generated: 2025-10-17 22:39:12 UTC
+
+DEBUG_PORT=5005
+DEBUG_TERMINAL_ID=1fc5adba-0c51-422c-b9b5-0f65b387bb99
+DEBUG_STATUS=RUNNING
+DEBUG_CONFIG=/home/josh/Doplarr/config.edn
+JAR_FILE=/home/josh/Doplarr/target/doplarr.jar
+LOG_LEVEL=DEBUG
+
+# To attach debugger in VS Code:
+# 1. Press Ctrl+Shift+D
+# 2. Select "Attach to Doplarr Debug (Port 5005)"
+# 3. Press F5
+
+# To stop this session:
+# kill -9 $(lsof -ti:5005)
+
+# To restart:
+# java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 \
+#   -Dconfig=/home/josh/Doplarr/config.edn \
+#   -jar /home/josh/Doplarr/target/doplarr.jar

@@ -1,0 +1,269 @@
+================================================================================
+DOPLARR DEBUG MODE - COMPLETE SETUP SUMMARY
+================================================================================
+
+PROJECT: Doplarr (Discord *arr Request Bot)
+REPOSITORY: https://github.com/BURGEJOS000/Doplarr
+BUILD DATE: 2025-10-17
+BUILD STATUS: ✓ SUCCESS
+DEBUG STATUS: ✓ RUNNING ON PORT 5005
+
+================================================================================
+BUILD ARTIFACTS
+================================================================================
+
+JAR File:
+  Location: /home/josh/Doplarr/target/doplarr.jar
+  Size: 17 MB
+  Type: Uber JAR (includes all dependencies)
+  Status: ✓ Built and running
+
+================================================================================
+INSTALLED TOOLS
+================================================================================
+
+✓ Java: OpenJDK 21.0.8
+✓ Clojure CLI: 1.12.3
+✓ Leiningen: 2.10.0
+✓ Git: (already installed)
+
+================================================================================
+CONFIGURATION FILES
+================================================================================
+
+Application Config:
+  /home/josh/Doplarr/config.edn
+  - Log Level: DEBUG
+  - Services: Sonarr, Radarr, Overseerr (test configuration)
+  - Discord: Test token configured
+
+VS Code Debug Config:
+  /home/josh/Doplarr/.vscode/launch.json
+  - Debugger Type: Java (JDWP)
+  - Port: 5005
+  - Auto-attach: Yes
+
+Build Tasks Config:
+  /home/josh/Doplarr/.vscode/tasks.json
+  - Task 1: Build & Debug (rebuild and start debug)
+  - Task 2: Debug (no build, just run)
+
+================================================================================
+DOCUMENTATION FILES
+================================================================================
+
+DEBUG_STATUS.md
+  - Current status and next steps
+  - Workflows and common tasks
+  - Keyboard shortcuts reference
+
+DEBUGGING_GUIDE.md
+  - Comprehensive debugging guide
+  - Breakpoint strategies
+  - Troubleshooting tips
+
+DEBUG.md
+  - Quick reference guide
+
+SETUP_SUMMARY.txt (this file)
+  - Complete setup summary
+
+================================================================================
+HOW TO DEBUG IN VS CODE
+================================================================================
+
+1. Open VS Code:
+   code /home/josh/Doplarr
+
+2. Open Debug View:
+   Press Ctrl+Shift+D
+
+3. Select Debug Configuration:
+   Choose "Attach to Doplarr Debug (Port 5005)" from dropdown
+
+4. Start Debugging:
+   Press F5 or click green play button
+
+5. Set Breakpoints:
+   Click on line numbers in source files (src/doplarr/*.clj)
+
+6. Step Through Code:
+   F10 = Step Over, F11 = Step Into, F5 = Continue
+
+================================================================================
+CURRENT DEBUG SESSION
+================================================================================
+
+Status: RUNNING ✓
+Port: 5005
+Config: /home/josh/Doplarr/config.edn
+JAR: /home/josh/Doplarr/target/doplarr.jar
+Log Level: DEBUG
+Output: Real-time in terminal
+
+To verify debugger is listening:
+  lsof -i :5005
+  netstat -tulpn | grep 5005
+
+To stop:
+  kill -9 $(lsof -ti:5005)
+
+================================================================================
+SOURCE CODE STRUCTURE
+================================================================================
+
+Main Entry Point:
+  src/doplarr/core.clj
+
+Discord Bot Logic:
+  src/doplarr/discord.clj
+
+Configuration:
+  src/doplarr/config.clj
+
+State Management:
+  src/doplarr/state.clj
+
+Backend Integrations:
+  src/doplarr/backends/sonarr.clj
+  src/doplarr/backends/radarr.clj
+  src/doplarr/backends/overseerr.clj
+
+Utilities:
+  src/doplarr/utils.clj
+  src/doplarr/interaction_state_machine.clj
+
+================================================================================
+QUICK COMMANDS
+================================================================================
+
+# Build the project
+cd /home/josh/Doplarr
+clj -T:build uber
+
+# Run in debug mode
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 \
+  -Dconfig=/home/josh/Doplarr/config.edn \
+  -jar /home/josh/Doplarr/target/doplarr.jar
+
+# Kill the app
+kill -9 $(lsof -ti:5005)
+
+# Check if debugger is listening
+lsof -i :5005
+
+# View dependencies
+cat /home/josh/Doplarr/deps.edn
+
+================================================================================
+DEPENDENCIES
+================================================================================
+
+Main Dependencies (from deps.edn):
+  - Clojure 1.11.1
+  - Discljord (Discord bot library)
+  - Core.async (async/await utilities)
+  - Timbre (logging)
+  - Hato (HTTP client)
+  - Cheshire (JSON)
+  - Specter (data transformation)
+
+Build Dependencies:
+  - seancorfield/build-clj (build tool)
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Issue: "Port 5005 already in use"
+Solution: kill -9 $(lsof -ti:5005)
+
+Issue: "Configuration is invalid"
+Solution: Check config.edn syntax, ensure :discord/token is set
+
+Issue: "Unable to attach debugger"
+Solution: Verify port 5005 is listening with: lsof -i :5005
+
+Issue: "JAR file not found"
+Solution: Run clj -T:build uber to rebuild
+
+Issue: "No debug output"
+Solution: Check log-level is :debug in config.edn
+
+================================================================================
+PROJECT INFORMATION
+================================================================================
+
+Project: Doplarr
+Description: Discord *arr request bot for Sonarr, Radarr, Overseerr
+Language: 98.7% Clojure
+License: MIT
+Repository: https://github.com/kiranshila/Doplarr (original)
+Fork: https://github.com/BURGEJOS000/Doplarr
+
+Key Features:
+  - Modern Discord slash commands
+  - Request media through Discord
+  - Integrates with Sonarr (TV shows)
+  - Integrates with Radarr (movies)
+  - Integrates with Overseerr (request approval)
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. Read DEBUG_STATUS.md for detailed instructions
+2. Open VS Code (code /home/josh/Doplarr)
+3. Press Ctrl+Shift+D to open Debug view
+4. Select "Attach to Doplarr Debug (Port 5005)"
+5. Press F5 to attach debugger
+6. Set breakpoints and start debugging!
+
+================================================================================
+FILES CREATED/MODIFIED
+================================================================================
+
+Created:
+  ✓ .vscode/launch.json - VS Code debug configuration
+  ✓ .vscode/tasks.json - VS Code build tasks
+  ✓ config.edn - Application configuration (modified for debug)
+  ✓ project.clj - Leiningen project file (compatibility)
+  ✓ DEBUG_STATUS.md - Current status and guide
+  ✓ DEBUGGING_GUIDE.md - Comprehensive debugging guide
+  ✓ DEBUG.md - Quick reference
+  ✓ SETUP_SUMMARY.txt - This file
+
+Built:
+  ✓ target/doplarr.jar - Main executable JAR (17 MB)
+  ✓ target/classes/ - Compiled Clojure classes
+
+================================================================================
+SUPPORT & RESOURCES
+================================================================================
+
+Clojure Resources:
+  https://clojure.org/
+  https://clojuredocs.org/
+
+Discord.jar (Discljord):
+  https://github.com/IGJoshua/discljord
+
+VS Code Java Debug:
+  https://github.com/microsoft/vscode-java-debug
+  https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug
+
+JDWP Protocol:
+  https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/
+
+================================================================================
+SETUP COMPLETE! 🎉
+================================================================================
+
+All systems ready for debugging. Start VS Code and attach the debugger to
+begin stepping through the code.
+
+For detailed instructions, see: DEBUG_STATUS.md
+For quick reference, see: DEBUG.md
+For comprehensive guide, see: DEBUGGING_GUIDE.md
+
+================================================================================
