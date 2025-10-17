@@ -2,9 +2,9 @@
  :sonarr/api "test-api-key"
  :radarr/url "http://localhost:7878"
  :radarr/api "test-api-key"
- ; :overseerr/url ""
- ; :overseerr/api ""
- :discord/token "test-token-for-debug"
+ :overseerr/url "http://localhost:5055"
+ :overseerr/api "test-api-key"
+ :discord/token "test-discord-token"
  ; -- Optional Settings
  ; :partial-seasons false
  ; :sonarr/quality-profile ""
@@ -14,6 +14,6 @@
  ; :sonarr/rootfolder ""
  ; :sonarr/season-folders true
  :discord/max-results 10
- ; :overseerr/default-id 1
+:overseerr/default-id 2
  :log-level :debug
  }
